@@ -1,3 +1,9 @@
 .selected {
   background-color: #FBE08C;
 }
+
+body * {
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+}

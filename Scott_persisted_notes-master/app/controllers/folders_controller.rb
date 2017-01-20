@@ -11,7 +11,6 @@ class FoldersController < ApplicationController
 
   def create
     @folder = Folder.new(folder_params)
-    binding.pry
     respond_to do |format|
       format.html
       format.json {

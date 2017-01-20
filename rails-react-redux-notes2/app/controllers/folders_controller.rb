@@ -10,7 +10,7 @@ class FoldersController < ApplicationController
   end
 
   def create
-    Folder.create(name: folder_params[:name])
+    Folder.create(folder_params)
   end
 
   private

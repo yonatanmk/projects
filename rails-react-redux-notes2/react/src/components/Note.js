@@ -7,7 +7,7 @@ const Note = (props) => {
     text = note.body;
   }
   return (
-    <div className='small-4 column'>
+    <div>
       <p>{text}</p>
     </div>
   );

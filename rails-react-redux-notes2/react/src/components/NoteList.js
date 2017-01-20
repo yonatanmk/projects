@@ -27,6 +27,7 @@ const NoteList = (props) => {
       </div>
     );
   });
+
   if (props.selectedFolderId && notes.length == 0) {
     notes = [(
       <div className='noteListElement' key={0}>
@@ -36,7 +37,7 @@ const NoteList = (props) => {
   }
 
   return (
-    <div className='small-4 column'>
+    <div>
       {notes}
     </div>
   );

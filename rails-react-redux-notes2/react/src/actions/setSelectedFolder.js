@@ -1,10 +1,10 @@
 import * as api from '../api';
-import { setNotes, selectFolder } from './index';
+import { selectFolderAction } from './index';
 
 let setSelectedFolder = (selectedFolderId) => (dispatch) => {
   api.fetchNotes(selectedFolderId)
   .then(notes => {
-    dispatch(selectFolder(selectedFolderId, notes));
+    dispatch(selectFolderAction(selectedFolderId, notes));
   })
   .catch(error => console.error(`Error in fetch: ${error.message}`));
 };

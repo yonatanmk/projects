@@ -1,7 +1,7 @@
 import React from 'react';
 import NoteList from '../components/NoteList';
 import { connect } from 'react-redux';
-import { setNoteData, selectNote, deselectNote } from '../actions';
+import { setNoteData, selectNoteAction, deselectNoteAction } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -13,10 +13,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setNoteData: (selectedFolderId) => dispatch(setNoteData(selectedFolderId)),
     handleNoteClick: (id, selectedNoteId) => {
-      if (id == selectedNoteId) { dispatch(deselectNote(id)); }
-      else { dispatch(selectNote(id)); }
+      if (id == selectedNoteId) { dispatch(deselectNoteAction(id)); }
+      else { dispatch(selectNoteAction(id)); }
     }
   };
 };

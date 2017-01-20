@@ -17,7 +17,7 @@ const FolderList = (props) => {
   });
 
   return (
-    <div className='small-4 column'>
+    <div>
       {folders}
     </div>
   );

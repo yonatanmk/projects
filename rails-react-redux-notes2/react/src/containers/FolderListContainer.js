@@ -1,7 +1,7 @@
 import React from 'react';
 import FolderList from '../components/FolderList';
 import { connect } from 'react-redux';
-import { setFolderData, setNoteData, setSelectedFolder, deselectFolder} from '../actions';
+import { setFolderData, setNoteData, setSelectedFolder, deselectFolderAction} from '../actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -12,10 +12,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setFolderData: () => dispatch(setFolderData(dispatch)),
     handleFolderClick: (id, selectedFolderId) => {
       if (id == selectedFolderId) {
-        dispatch(deselectFolder(id));
+        dispatch(deselectFolderAction(id));
       }
       else {
         dispatch(setSelectedFolder(id));

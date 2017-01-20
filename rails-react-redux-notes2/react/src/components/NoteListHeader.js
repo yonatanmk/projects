@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddNote = ({handleAddNoteClick, selectedFolderId}) => {
+const NoteListHeader = ({handleAddNoteClick, selectedFolderId}) => {
   return (
     <div>
       <button onClick={() => handleAddNoteClick(selectedFolderId)}>
@@ -10,4 +10,4 @@ const AddNote = ({handleAddNoteClick, selectedFolderId}) => {
   );
 };
 
-export default AddNote;
+export default NoteListHeader;

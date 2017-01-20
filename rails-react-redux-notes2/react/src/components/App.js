@@ -3,7 +3,7 @@ import FolderListContainer from '../containers/FolderListContainer';
 import NoteListContainer from '../containers/NoteListContainer';
 import NoteContainer from '../containers/NoteContainer.js';
 import AddFolderContainer from '../containers/AddFolderContainer.js';
-import AddNoteContainer from '../containers/AddNoteContainer.js';
+import NoteListHeaderContainer from '../containers/NoteListHeaderContainer.js';
 
 const App = () => {
   return (
@@ -13,7 +13,7 @@ const App = () => {
         <AddFolderContainer />
       </div>
       <div className='folders-box small-4 column'>
-        <AddNoteContainer />
+        <NoteListHeaderContainer />
         <NoteListContainer />
       </div>
       <div className='folders-box small-4 column'>

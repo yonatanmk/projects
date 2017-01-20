@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addNote } from '../actions';
-import AddNote from '../components/AddNote';
+import NoteListHeader from '../components/NoteListHeader';
 
 const mapStateToProps = (state) => {
   return {
@@ -19,6 +19,6 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const AddNoteContainer = connect(mapStateToProps, mapDispatchToProps)(AddNote);
+const NoteListHeaderContainer = connect(mapStateToProps, mapDispatchToProps)(NoteListHeader);
 
-export default AddNoteContainer;
+export default NoteListHeaderContainer;

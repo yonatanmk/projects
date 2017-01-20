@@ -2,6 +2,7 @@ export {default as setFolderData} from './setFolderData';
 export {default as setNoteData} from './setNoteData';
 export {default as setSelectedFolder} from './setSelectedFolder';
 export {default as addFolder} from './addFolder';
+export {default as addNote} from './addNote';
 
 export const setFoldersAction = (folders) => {
   return {

@@ -10,7 +10,12 @@ class FoldersController < ApplicationController
   end
 
   def create
-    Folder.create(folder_params)
+    @folder = Folder.new(folder_params)
+    respond_to do |format|
+      format.json {
+        @folder.save
+      }
+    end
   end
 
   private

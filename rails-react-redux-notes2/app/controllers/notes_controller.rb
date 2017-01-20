@@ -1,4 +1,6 @@
 class NotesController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     @folder = Folder.find(params[:folder_id])
     @notes = @folder.notes
@@ -6,6 +8,7 @@ class NotesController < ApplicationController
   end
 
   def create
+    Note.create(note_params)
   end
 
 
@@ -14,4 +17,10 @@ class NotesController < ApplicationController
 
   def destroy
   end
+
+  private
+
+    def note_params
+      params.require(:note).permit(:folder_id, :body)
+    end
 end

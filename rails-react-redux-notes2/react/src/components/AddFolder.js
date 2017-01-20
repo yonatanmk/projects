@@ -16,22 +16,3 @@ const AddFolder = ({handleAddFolderClick}) => {
 };
 
 export default AddFolder;
-
-// <form id='folder-form' onSubmit={this.handleSubmit}>
-//   <input type='text' onChange={this.handleChange} value={this.state.value} placeholder='New Folder'/>
-// </form>
-//
-// let AddTodo = ({dispatch}) => {
-//   let input;
-//   return (
-//     <div>
-//       <input ref={node => {input = node;}} />
-//       <button onClick={() => {
-//         dispatch(addTodo(input.value));
-//         input.value = '';
-//       }}>
-//         Add Todo
-//       </button>
-//     </div>
-//   );
-// };

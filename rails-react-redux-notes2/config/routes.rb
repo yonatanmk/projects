@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :folders, only: [:index, :create] do
     resources :notes, only: [:index, :create, :update, :destroy]
   end
+  resources :notes, only: [:index, :create, :update, :destroy]
 end

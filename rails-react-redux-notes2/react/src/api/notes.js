@@ -21,7 +21,7 @@ export const addNote = (folder_id) => {
     }
   };
   let body = JSON.stringify(data);
-  return fetch(`/folders/${folder_id}/notes`, {
+  return fetch(`/notes`, {
     method: "POST",
     headers: { 'Content-Type': 'application/json' },
     body
@@ -38,16 +38,26 @@ export const addNote = (folder_id) => {
     });
 };
 
-// let data = {
-//   note: {
-//     body: "New Note!",
-//     folder_id: this.state.selectedFolderId
-//   }
-// }
-// let jsonStringData = JSON.stringify(data);
-//
-// fetch('/notes.json', {
-//   method: 'post',
-//   headers: { 'Content-Type': 'application/json' },
-//   body: jsonStringData
-// })
+export const updateNote = (id, body) => {
+  let data = {
+    note:{
+      body
+    }
+  };
+  let content = JSON.stringify(data);
+  return fetch(`/notes/${id}`, {
+    method: "PUT",
+    headers: { 'Content-Type': 'application/json' },
+    body: content
+  })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      }
+      else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+            error = new Error(errorMessage);
+        throw(error);
+      }
+    });
+};

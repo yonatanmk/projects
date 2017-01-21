@@ -1,12 +1,12 @@
 import * as api from '../api';
 import setNoteData from './setNoteData';
 
-let addNote = (selectedFolderId) => (dispatch) => {
-  api.addNote()
+let updateNote = (selectedFolderId, selectedNoteId, text) => (dispatch) => {
+  api.updateNote(selectedNoteId, text)
   .then(() => {
     dispatch(setNoteData(selectedFolderId));
   })
   .catch(error => console.error(`Error in fetch: ${error.message}`));
 };
 
-export default addNote;
+export default updateNote;

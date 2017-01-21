@@ -15,8 +15,10 @@ const NoteList = (props) => {
     if (note.body.length > 20) {
       noteBody += "...";
     }
-
-    let year = note.updated_at.substring(0,2);
+    if (note.body.length === 0) {
+      noteBody = "EMPTY";
+    }
+    let year = note.updated_at.substring(0,4);
     let month = note.updated_at.substring(5,7);
     let day = note.updated_at.substring(8,10);
 

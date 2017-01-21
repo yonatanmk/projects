@@ -13,6 +13,8 @@ class NotesController < ApplicationController
 
 
   def update
+    @note = Note.find(params[:id])
+    @note.update(note_params)
   end
 
   def destroy
@@ -21,6 +23,6 @@ class NotesController < ApplicationController
   private
 
     def note_params
-      params.require(:note).permit(:folder_id, :body)
+      params.require(:note).permit(:folder_id, :body, :id, :text)
     end
 end

@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     handleNoteClick: (id, selectedNoteId) => {
-      if (id == selectedNoteId) { dispatch(deselectNoteAction(id)); }
+      if (id == selectedNoteId) { dispatch(deselectNoteAction()); }
       else { dispatch(selectNoteAction(id)); }
     }
   };

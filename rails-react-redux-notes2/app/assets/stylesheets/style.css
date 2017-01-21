@@ -2,8 +2,19 @@
   background-color: #FBE08C;
 }
 
-body * {
+div {
   border-style: solid;
   border-color: black;
   border-width: 1px;
+}
+
+button {
+  background-color: red;
+  border-style: solid;
+  border-color: green;
+  border-width: 2px;
+}
+
+textarea {
+  height: 400px;
 }

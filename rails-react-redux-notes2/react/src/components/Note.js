@@ -1,16 +1,24 @@
 import React from 'react';
 
 const Note = (props) => {
-  let text = '';
-  let note = props.notes.find((note)=>{return note.id == props.selectedNoteId;});
-  if (note) {
-    text = note.body;
+  let textarea, noteForm;
+  if (props.note) {
+    return (
+      <div>
+        <button onClick={() => {
+          props.handleUpdateClick(props.selectedFolderId, props.selectedNoteId, textarea.value);
+        }}>
+          Update
+        </button>
+        <textarea
+          defaultValue={props.note.body}
+          ref={node => {textarea = node;}}
+        />
+      </div>
+    );
+  } else {
+    return <div></div>;
   }
-  return (
-    <div>
-      <p>{text}</p>
-    </div>
-  );
 };
 
 export default Note;

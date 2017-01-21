@@ -1,13 +1,17 @@
 import React from 'react';
 
 const NoteListHeader = ({handleAddNoteClick, selectedFolderId}) => {
-  return (
-    <div>
-      <button onClick={() => handleAddNoteClick(selectedFolderId)}>
-        Add Note
-      </button>
-    </div>
-  );
+  if (selectedFolderId) {
+    return (
+      <div>
+        <button onClick={() => handleAddNoteClick(selectedFolderId)}>
+          Add Note
+        </button>
+      </div>
+    );
+  } else {
+    return <div></div>;
+  }
 };
 
 export default NoteListHeader;

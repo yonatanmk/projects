@@ -2,13 +2,26 @@ import React from 'react';
 import Note from '../components/Note';
 import { connect } from 'react-redux';
 
+import { updateNote } from '../actions';
+
 const mapStateToProps = (state) => {
   return {
-    notes: state.notes,
-    selectedNoteId: state.selectedNoteId
+    note: state.notes.find((note)=>{return note.id == state.selectedNoteId;}),
+    selectedNoteId: state.selectedNoteId,
+    selectedFolderId: state.selectedFolderId
   };
 };
 
-const NoteContainer = connect(mapStateToProps, null)(Note);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleUpdateClick: (selectedFolderId, selectedNoteId, text) => {
+      if (selectedFolderId && selectedNoteId) {
+        dispatch(updateNote(selectedFolderId, selectedNoteId, text));
+      }
+    }
+  };
+};
+
+const NoteContainer = connect(mapStateToProps, mapDispatchToProps)(Note);
 
 export default NoteContainer;

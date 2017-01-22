@@ -2,7 +2,8 @@ class Api::V1::MoviesController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def index
-    render json: ['You', 'Got', 'The', 'API']
+    @data = get_movie_db_info('nemo')
+    render json: @data
   end
 
   def create
@@ -41,5 +42,17 @@ class Api::V1::MoviesController < ApplicationController
     #   @restaurants = Restaurant.order(:id)
     #   render json: @restaurants
     # end
+  end
+
+  private
+
+  def movie_db_uri(query)
+    # binding.pry
+    URI("https://api.themoviedb.org/3/search/movie?query=#{query}&api_key=bdf1e31ad389073aa86d239fe8c8bf6b")
+  end
+
+  def get_movie_db_info(query)
+    response = Net::HTTP.get_response(movie_db_uri(query))
+    return JSON.parse(response.body)['results']
   end
 end

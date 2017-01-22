@@ -1,9 +1,16 @@
 import React from 'react';
 
-const MovieList = (props) => {
+const MovieList = ({movies}) => {
+  movies = movies.map((movie) => {
+    return(
+      <div>
+        <p>{movie.title}</p>
+      </div>
+    );
+  });
   return (
     <div>
-      <h1>Huzzah</h1>
+      {movies}
     </div>
   );
 };

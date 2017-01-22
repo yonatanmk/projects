@@ -1,9 +1,10 @@
 import React from 'react';
+import MovieListContainer from '../containers/MovieListContainer';
 
 const App = () => {
   return (
     <div>
-      <h1>Huzzah</h1>
+      <MovieListContainer />
     </div>
   );
 };

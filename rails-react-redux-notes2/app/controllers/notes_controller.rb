@@ -9,6 +9,8 @@ class NotesController < ApplicationController
 
   def create
     Note.create(note_params)
+    @new_note_id = Note.last.id
+    render json: @new_note_id
   end
 
 

@@ -35,7 +35,8 @@ export const addNote = (folder_id) => {
             error = new Error(errorMessage);
         throw(error);
       }
-    });
+    })
+    .then(response => response.json());
 };
 
 export const updateNote = (id, body) => {

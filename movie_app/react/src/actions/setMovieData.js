@@ -1,8 +1,8 @@
 import * as api from '../api';
 import { setMoviesAction } from './index';
 
-let setMovieData = (dispatch) => {
-  api.fetchMovies()
+let setMovieData = (query) => (dispatch) => {
+  api.fetchMovies(query)
   .then(movies => {
     dispatch(setMoviesAction(movies));
   })

@@ -1,1 +1,10 @@
+.movie-box {
+  height: 360px;
+}
 
+button {
+  background-color: red;
+  border-style: solid;
+  border-color: green;
+  border-width: 2px;
+}

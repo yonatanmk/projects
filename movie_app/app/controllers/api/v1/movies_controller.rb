@@ -1,8 +1,11 @@
+require "dotenv"
+Dotenv.load
+
 class Api::V1::MoviesController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def index
-    @data = get_movie_db_info('nemo')
+    @data = get_movie_db_info(params[:query])
     render json: @data
   end
 
@@ -47,8 +50,8 @@ class Api::V1::MoviesController < ApplicationController
   private
 
   def movie_db_uri(query)
-    # binding.pry
-    URI("https://api.themoviedb.org/3/search/movie?query=#{query}&api_key=bdf1e31ad389073aa86d239fe8c8bf6b")
+    query = query.split(' ').join('+')
+    URI("https://api.themoviedb.org/3/search/movie?query=#{query}&api_key=#{ENV["MOVIE_DB_API_KEY"]}")
   end
 
   def get_movie_db_info(query)

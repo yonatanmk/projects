@@ -1,11 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router';
 
-const MovieList = ({movies}) => {
-  if (movies.length === 0) {
-    return <p>We Could Not Find Anything</p>;
-  }
+const MovieList = ({movies, firstSearch, handleMovieClick}) => {
+  // if (movies.length === 0 && !firstSearch) {
+  //
+  //   return setTimeout(()=>{return <p>We Could Not Find Anything</p>; }, 500);
+  // }
   movies = movies.map((movie) => {
-    let className = "column column-block movie-box";
+    let className = "small-6 medium-4 large-2 columns movie-box";
     let image;
     if (movie.poster_path) {
       image = <img src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`} />;
@@ -13,15 +15,21 @@ const MovieList = ({movies}) => {
       image = <img src={`http://www.planetvlog.com/wp-content/themes/betube/assets/images/watchmovies.png`} />;
     }
 
+    if (movie == movies[movies.length-1]) {
+      className += " end";
+    }
+
     return(
       <div key={movie.id} className={className}>
-        <p>{movie.title}</p>
-        {image}
+        <Link to={`/movie/${movie.id}`}>
+          <p>{movie.title}</p>
+          {image}
+        </Link>
       </div>
     );
   });
   return (
-    <div className='row small-up-1 medium-up-4 large-up-6'>
+    <div>
       {movies}
     </div>
   );

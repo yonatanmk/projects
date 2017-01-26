@@ -9,16 +9,18 @@ class Api::V1::MoviesController < ApplicationController
     render json: @data
   end
 
+  def show
+    #you reached the api
+    binding.pry
+  end
+
   def create
-    # data = JSON.parse(request.body.read)
-    # @restaurant = Restaurant.new(name: data["name"], category: data["category"], description: data["description"])
-    # if @restaurant.save!
-    #   @restaurants = Restaurant.all
-    #   @restaurants.order(:id)
-    #   render json: @restaurants
-    # else
-    #   render json: {message: "Did not work"}, status: 404
-    # end
+    @movie = Movie.new(movie_params)
+    @movie.release_date = "#{@movie.release_date[5..6]}/#{@movie.release_date[8..9]}/#{@movie.release_date[0..3]}"
+    if Movie.where("id = #{@movie.id}").length == 0
+      @movie.save
+    end
+    render json: {}
   end
 
   def destroy
@@ -48,6 +50,10 @@ class Api::V1::MoviesController < ApplicationController
   end
 
   private
+
+  def movie_params
+    params.require(:movie).permit(:id, :title, :image_url, :release_date, :description, :adult)
+  end
 
   def movie_db_uri(query)
     query = query.split(' ').join('+')

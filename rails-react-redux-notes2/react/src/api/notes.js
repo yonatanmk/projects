@@ -62,3 +62,20 @@ export const updateNote = (id, body) => {
       }
     });
 };
+
+export const deleteNote = (id) => {
+  return fetch(`/notes/${id}`, {
+    method: "DELETE",
+    headers: { 'Content-Type': 'application/json' }
+  })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      }
+      else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+            error = new Error(errorMessage);
+        throw(error);
+      }
+    });
+};

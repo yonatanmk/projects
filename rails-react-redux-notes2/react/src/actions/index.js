@@ -4,6 +4,7 @@ export {default as setSelectedFolder} from './setSelectedFolder';
 export {default as addFolder} from './addFolder';
 export {default as addNote} from './addNote';
 export {default as updateNote} from './updateNote';
+export {default as deleteNote} from './deleteNote';
 
 export const setFoldersAction = (folders) => {
   return {
@@ -22,16 +23,6 @@ export const deselectFolderAction = () => ({
   type: 'DESELECT FOLDER',
 });
 
-// export const addFolderAction = (name) => ({
-//   type: 'ADD FOLDER',
-//   name
-// });
-//
-// export const deleteFolderAction = (id) => ({
-//   type: 'DELETE FOLDER',
-//   id
-// });
-
 export const setNotesAction = (notes) => {
   return {
     type: 'SET NOTES',
@@ -46,4 +37,9 @@ export const selectNoteAction = (id) => ({
 
 export const deselectNoteAction = () => ({
   type: 'DESELECT NOTE'
+});
+
+export const updateNoteState = (body) => ({
+  type: 'CHANGE NOTE CONTENT',
+  body
 });

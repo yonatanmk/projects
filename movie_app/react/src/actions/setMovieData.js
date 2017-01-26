@@ -12,3 +12,29 @@ let setMovieData = (query) => (dispatch) => {
 };
 
 export default setMovieData;
+
+export const addNote = (folder_id) => {
+  let data = {
+    note:{
+      folder_id,
+      body: 'New Note'
+    }
+  };
+  let body = JSON.stringify(data);
+  return fetch(`/notes`, {
+    method: "POST",
+    headers: { 'Content-Type': 'application/json' },
+    body
+  })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      }
+      else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+            error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json());
+};

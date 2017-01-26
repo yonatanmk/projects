@@ -10,8 +10,14 @@ const Note = (props) => {
         }}>
           Update
         </button>
+        <button onClick={() => {
+          props.handleDeleteClick(props.selectedNoteId, props.selectedFolderId);
+        }}>
+          Delete
+        </button>
         <textarea
-          defaultValue={props.note.body}
+          onChange={props.handleNoteChange}
+          value={props.note.body}
           ref={node => {textarea = node;}}
         />
       </div>

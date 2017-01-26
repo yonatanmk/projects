@@ -5,6 +5,7 @@ class Movies < ActiveRecord::Migration[5.0]
       t.string :image_url, null: false, unique: true
       t.datetime :release_date
       t.text :description
+      t.boolean :adult, default: false
       t.timestamps null: false
     end
   end

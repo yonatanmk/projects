@@ -2,7 +2,7 @@ import React from 'react';
 import Note from '../components/Note';
 import { connect } from 'react-redux';
 
-import { updateNote } from '../actions';
+import { updateNote, updateNoteState, deleteNote } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -18,6 +18,12 @@ const mapDispatchToProps = (dispatch) => {
       if (selectedFolderId && selectedNoteId) {
         dispatch(updateNote(selectedFolderId, selectedNoteId, text));
       }
+    },
+    handleNoteChange: (event) => {
+      dispatch(updateNoteState(event.target.value));
+    },
+    handleDeleteClick: (noteId, selectedFolderId) => {
+      dispatch(deleteNote(noteId, selectedFolderId));
     }
   };
 };

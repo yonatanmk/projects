@@ -9,7 +9,8 @@ class MovieShow extends Component {
   componentWillMount() {
     let movie = this.props.movies.find((movie)=>{return movie.id == this.props.params.id;});
     this.props.dispatch(addMovie(movie));
-    this.props.dispatch(setSelectedMovieAction(movie, this));
+    // use fetch to get movie getSelectedMovie()
+    this.props.dispatch(setSelectedMovieAction(movie));
   }
 
   render() {
@@ -18,7 +19,7 @@ class MovieShow extends Component {
       return(
         <div>
           <h1>{movie.title}</h1>
-          <img src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`} />;
+          <img src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`} />
         </div>
       );
     } else {

@@ -7,6 +7,6 @@ Rails.application.routes.draw do
       resources :movies
     end
   end
-  # get '*path', to: 'movies#index'
+  get '*path', to: 'movies#index' # allows you to refresh the page
 
 end

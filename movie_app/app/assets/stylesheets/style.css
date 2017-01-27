@@ -1,4 +1,4 @@
-.movie-box {
+.index-box {
   height: 350px;
   border-style: solid;
   border-width: 3px;
@@ -15,4 +15,13 @@ button {
 
 img {
   height: 260px
+}
+
+ul {
+  list-style: none;
+}
+
+.index-image {
+  height: 195px;
+  overflow: hidden;
 }

@@ -11,10 +11,10 @@ class MoviesController < ApplicationController
 
   def create
     # movie = Movie.where("id == #{params[:id]}")
-    binding.pry
+    # binding.pry
 
     # unless movie
-      movie = Movie.create(id: params[:id], title: params[:title], adult: params[:adult], description: params[:description], image_url: params[:image_url], release_date: params[:release_date])
+      # movie = Movie.create(id: params[:id], title: params[:title], adult: params[:adult], description: params[:description], image_url: params[:image_url], release_date: params[:release_date])
     # end
 
     # redirect_to movie_path(movie)

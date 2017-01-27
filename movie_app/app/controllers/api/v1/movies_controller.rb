@@ -10,8 +10,8 @@ class Api::V1::MoviesController < ApplicationController
   end
 
   def show
-    #you reached the api
-    binding.pry
+    @movie = Movie.find(params[:id])
+    render json: @movie
   end
 
   def create

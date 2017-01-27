@@ -1,5 +1,6 @@
 export {default as setMovieData} from './setMovieData';
 export {default as addMovie} from './addMovie';
+export {default as setSelectedMovie} from './setSelectedMovie';
 
 export const setMoviesAction = (movies) => {
   return {

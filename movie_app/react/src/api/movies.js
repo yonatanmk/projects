@@ -13,6 +13,21 @@ export const fetchMovies = (query) => {
     .then(response => response.json());
 };
 
+export const fetchMovie = (id) => {
+  return fetch(`/api/v1/movies/${id}`)
+    .then(response => {
+      if (response.ok) {
+        return response;
+      }
+      else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+            error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json());
+};
+
 export const addMovie = (movie) => {
   let data = {
     movie:{

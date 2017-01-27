@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { setCurrentMovie, addMovie, setSelectedMovieAction } from '../actions';
+import { setCurrentMovie, addMovie, setSelectedMovie } from '../actions';
 
 class MovieShow extends Component {
   constructor(props) {
@@ -7,10 +7,12 @@ class MovieShow extends Component {
   }
 
   componentWillMount() {
-    let movie = this.props.movies.find((movie)=>{return movie.id == this.props.params.id;});
-    this.props.dispatch(addMovie(movie));
+    if (this.props.movies.length > 0) {
+      let movie = this.props.movies.find((movie)=>{return movie.id == this.props.params.id;});
+      this.props.dispatch(addMovie(movie));
+    }
     // use fetch to get movie getSelectedMovie()
-    this.props.dispatch(setSelectedMovieAction(movie));
+    this.props.dispatch(setSelectedMovie(this.props.params.id));
   }
 
   render() {
@@ -19,7 +21,8 @@ class MovieShow extends Component {
       return(
         <div>
           <h1>{movie.title}</h1>
-          <img src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`} />
+          <img src={`http://image.tmdb.org/t/p/w185/${movie.image_url}`} />
+          <p>{movie.description}</p>
         </div>
       );
     } else {

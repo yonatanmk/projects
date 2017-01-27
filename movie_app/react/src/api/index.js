@@ -1,1 +1,1 @@
-export {fetchMovies, addMovie} from './movies';
+export {fetchMovies, fetchMovie, addMovie} from './movies';

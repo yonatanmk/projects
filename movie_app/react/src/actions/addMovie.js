@@ -1,10 +1,10 @@
 import * as api from '../api';
-// import { setMoviesAction } from './index';
+import { setSelectedMovie } from './index';
 
 let addMovie = (movie) => (dispatch) => {
   api.addMovie(movie)
-  // .then(movies => {
-  //   dispatch(setMoviesAction(movies));
+  // .then(movie => {
+  //   dispatch(setSelectedMovie(movie));
   // })
   .catch(error => {
     console.error(`Error in fetch: ${error.message}`);

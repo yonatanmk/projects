@@ -2,6 +2,14 @@ class MoviesController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @user = {
+      info: current_user,
+      movies: current_user.movies
+    }
+    respond_to do |format|
+      format.html
+      format.json { render json: @user }
+    end
   end
 
   def show

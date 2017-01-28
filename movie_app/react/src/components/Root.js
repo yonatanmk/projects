@@ -1,8 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, Redirect, browserHistory } from 'react-router';
-import App from './App';
-import UserPage from './UserPage';
+import AppContainer from '../containers/AppContainer';
+import UserPageContainer from '../containers/UserPageContainer';
 import MovieIndex from './MovieIndex';
 import MovieShowContainer from '../containers/MovieShowContainer';
 
@@ -11,8 +11,8 @@ const Root = ({ store }) => (
   <Provider store={store}>
     <Router history={browserHistory} >
       <Redirect from="/" to="/movies" />
-      <Route path="/" component={App} >
-        <Route path="/user" component={UserPage} />
+      <Route path="/" component={AppContainer} >
+        <Route path="/user" component={UserPageContainer} />
         <Route path="/movies" component={MovieIndex} />
         <Route path="/movies/:id" component={MovieShowContainer} />
       </Route>

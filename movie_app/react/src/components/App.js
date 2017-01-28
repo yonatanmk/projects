@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router';
-import MovieListContainer from '../containers/MovieListContainer';
-import SearchFormContainer from '../containers/SearchFormContainer';
+import { setUser } from '../actions';
 
-const App = ({children}) => {
+
+const App = ({user, children, dispatch}) => {
+  if (!user) {
+    dispatch(setUser());
+  }
   return (
     <div>
       <nav className="top-bar" data-topbar role="navigation">

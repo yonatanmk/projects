@@ -33,9 +33,9 @@ export const addMovie = (movie) => {
     movie:{
       id: movie.id,
       title: movie.title,
-      image_url: movie.poster_path,
+      poster_path: movie.poster_path,
       release_date: movie.release_date,
-      description: movie.overview,
+      overview: movie.overview,
       adult: movie.adult
     }
   };

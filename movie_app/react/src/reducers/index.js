@@ -1,5 +1,14 @@
 import { combineReducers } from 'redux';
 
+let user = (state = null, action ) => {
+  switch (action.type) {
+    case 'SET USER':
+      return action.user;
+    default:
+      return state;
+  }
+};
+
 let movies = (state = [], action ) => {
   switch (action.type) {
     case 'SET MOVIES':
@@ -27,6 +36,6 @@ let firstSearch = (state = true, action ) => {
   }
 };
 
-const appReducer = combineReducers({movies, selectedMovie, firstSearch});
+const appReducer = combineReducers({user, movies, selectedMovie, firstSearch});
 
 export default appReducer;

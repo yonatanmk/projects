@@ -5,6 +5,7 @@ class Api::V1::MoviesController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def index
+    # binding.pry
     @data = get_movie_db_info(params[:query])
     render json: @data
   end
@@ -52,7 +53,7 @@ class Api::V1::MoviesController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:id, :title, :image_url, :release_date, :description, :adult)
+    params.require(:movie).permit(:id, :title, :poster_path, :release_date, :overview, :adult)
   end
 
   def movie_db_uri(query)

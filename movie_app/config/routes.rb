@@ -7,6 +7,11 @@ Rails.application.routes.draw do
       resources :movies
     end
   end
-  get '*path', to: 'movies#index' # allows you to refresh the page
+  namespace :api do
+    namespace :v1 do
+      resources :users
+    end
+  end
+  get '*path', to: 'movies#index' # allows you to refresh the page, cant have other rails pages
 
 end

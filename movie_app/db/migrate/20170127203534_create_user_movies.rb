@@ -3,7 +3,7 @@ class CreateUserMovies < ActiveRecord::Migration[5.0]
     create_table :user_movies do |t|
       t.belongs_to :user
       t.belongs_to :movie
-      t.boolean :like, default: false
+      t.string :status, default: 'seen'
     end
   end
 end

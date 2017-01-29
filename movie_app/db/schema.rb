@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20170127203534) do
   create_table "user_movies", force: :cascade do |t|
     t.integer "user_id"
     t.integer "movie_id"
-    t.boolean "like",     default: false
+    t.string  "status",   default: "seen"
     t.index ["movie_id"], name: "index_user_movies_on_movie_id", using: :btree
     t.index ["user_id"], name: "index_user_movies_on_user_id", using: :btree
   end

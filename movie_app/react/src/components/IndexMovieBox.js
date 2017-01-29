@@ -12,22 +12,52 @@ const IndexMovieBox = ({movie, movies, user, userMovies, handleButtonClick}) => 
   if (userMovie) {
     movie.status = userMovie.status;
   }
+  let boxHeader = (
+    <div className='not-seen-header movie-box-header'>
+      <p>Have Not Watched</p>
+    </div>
+  );
   if (movie.status) {
     switch (movie.status) {
       case 'seen':
         className += " gray";
+        boxHeader = (
+          <div className='seen-header movie-box-header'>
+            <p>Watched</p>
+          </div>
+        );
         break;
       case 'want':
         className += " blue";
+        boxHeader = (
+          <div className='want-header movie-box-header'>
+            <p>Want To See</p>
+          </div>
+        );
         break;
       case 'like':
         className += " green";
+        boxHeader = (
+          <div className='like-header movie-box-header'>
+            <p>Liked</p>
+          </div>
+        );
         break;
       case 'dislike':
         className += " red";
+        boxHeader = (
+          <div className='dislike-header movie-box-header'>
+            <p>Disliked</p>
+          </div>
+        );
         break;
       default:
         className += " gray";
+        boxHeader = (
+          <div className='seen-header movie-box-header'>
+            <p>Seen</p>
+          </div>
+        );
         break;
     }
   }
@@ -47,6 +77,7 @@ const IndexMovieBox = ({movie, movies, user, userMovies, handleButtonClick}) => 
 
   return (
     <div key={movie.id} className={className}>
+      {boxHeader}
       <p>{movie.title}</p>
       <Link to={`/movies/${movie.id}`}><button>Show Movie</button></Link>
       <button onClick={onButtonClick} value='want'>Want to See</button>

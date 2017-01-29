@@ -1,5 +1,5 @@
 .index-box {
-  height: 350px;
+  height: 445px;
   border-style: solid;
   border-width: 3px;
   border-color: black;
@@ -24,6 +24,41 @@ ul {
 .index-image {
   height: 195px;
   overflow: hidden;
+}
+
+.movie-box-header {
+  font-family: 'Raleway Dots', cursive;
+  font-weight: bold;
+  font-size: 26px;
+  text-align: center;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.movie-box-header * {
+  margin: 0px;
+}
+
+.seen-header {
+  border-color: #5A5B5B;
+  color: #5A5B5B;
+}
+
+.want-header {
+  border-color: #2E6E99;
+  color: #2E6E99;
+}
+
+.like-header {
+  border-color: #489E66;
+  color: #489E66;
+}
+
+.dislike-header {
+  border-color: #A34545;
+  color: #A34545;
 }
 
 .gray {

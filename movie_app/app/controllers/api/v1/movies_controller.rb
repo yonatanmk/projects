@@ -5,7 +5,6 @@ class Api::V1::MoviesController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def index
-    # binding.pry
     @data = get_movie_db_info(params[:query])
     render json: @data
   end

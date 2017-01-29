@@ -1,7 +1,7 @@
 export {default as setMovieData} from './setMovieData';
-export {default as addMovie} from './addMovie';
 export {default as setSelectedMovie} from './setSelectedMovie';
 export {default as setUser} from './setUser';
+export {default as setUserMovie} from './setUserMovie';
 
 export const setMoviesAction = (movies) => {
   return {

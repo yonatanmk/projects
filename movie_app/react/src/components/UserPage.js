@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router';
-import MovieBox from './MovieBox';
+import IndexMovieBox from './IndexMovieBox';
 
 const UserPage = ({user}) => {
   let userMovies;
   if (user) {
     userMovies = user.movies.map((movie) => {
       return (
-        <MovieBox
+        <IndexMovieBox
           key={movie.id}
           movie={movie}
           movies={user.movies}
@@ -17,7 +17,7 @@ const UserPage = ({user}) => {
   }
   return (
     <div>
-      <h1>This is the User Page</h1>
+      <h1>Your Movies</h1>
       {userMovies}
     </div>
   );

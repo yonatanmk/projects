@@ -1,23 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router';
-import MovieBox from './MovieBox';
+import IndexMovieBoxContainer from '../containers/IndexMovieBoxContainer';
 
-const MovieList = ({movies, firstSearch, handleMovieClick}) => {
-
-  movies = movies.map((movie) => {
+const MovieList = ({movies, firstSearch, handleMovieClick, handleAddUserMovieClick}) => {
+  if (!firstSearch && movies.length == 0) {
+    return <p>No Results</p>;
+  }
+  else {
+    movies = movies.map((movie) => {
+      return (
+        <IndexMovieBoxContainer
+          key={movie.id}
+          movie={movie}
+        />
+      );
+    });
     return (
-      <MovieBox
-        key={movie.id}
-        movie={movie}
-        movies={movies}
-      />
+      <div>
+        {movies}
+      </div>
     );
-  });
-  return (
-    <div>
-      {movies}
-    </div>
-  );
+  }
 };
 
 export default MovieList;

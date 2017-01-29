@@ -27,8 +27,8 @@ ul {
 }
 
 .movie-box-header {
-  font-family: 'Raleway Dots', cursive;
-  font-weight: bold;
+  font-family: 'Raleway', sans-serif;
+  /*font-weight: bold;*/
   font-size: 26px;
   text-align: center;
   border-style: solid;

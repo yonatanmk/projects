@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20170127203534) do
 
   create_table "movies", force: :cascade do |t|
     t.string   "title",                        null: false
-    t.string   "poster_path",                  null: false
+    t.string   "poster_path"
     t.string   "release_date"
     t.text     "overview"
     t.boolean  "adult",        default: false

@@ -3,8 +3,14 @@ import { Link } from 'react-router';
 import * as api from '../api';
 import { addUserMovie } from '../actions';
 
-const IndexMovieBox = ({movie, movies, user, userMovies, handleButtonClick}) => {
-  let className = "small-6 medium-4 large-2 columns index-box";
+const IndexMovieBox = ({movie, movies, user, userMovies, page, handleButtonClick}) => {
+  let className;
+  if (page === "index") {
+    className = "small-6 medium-4 large-2 columns index-box";
+  }
+  else if (page === "user") {
+    className = "small-12 medium-8 large-4 columns index-box";
+  }
   if (movie == movies[movies.length-1]) {
     className += " end";
   }
@@ -14,7 +20,7 @@ const IndexMovieBox = ({movie, movies, user, userMovies, handleButtonClick}) => 
   }
   let boxHeader = (
     <div className='not-seen-header movie-box-header'>
-      <p>Have Not Watched</p>
+      <p>Not Seen</p>
     </div>
   );
   if (movie.status) {

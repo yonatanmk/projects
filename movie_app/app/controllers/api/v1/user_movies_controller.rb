@@ -11,7 +11,11 @@ class Api::V1::UserMoviesController < ApplicationController
     @user = User.find(user_movie_params[:user_id])
     @movie = Movie.find(user_movie_params[:movie_id])
     @status = user_movie_params[:status]
-    unless @user.movies.include?(@movie)
+    if @user.movies.include?(@movie)
+      # binding.pry
+      @userMovie = UserMovie.where(user: @user, movie: @movie).first
+      @userMovie.update(status: @status)
+    else
       UserMovie.create(user: @user, movie: @movie, status: @status )
     end
     render json: {}

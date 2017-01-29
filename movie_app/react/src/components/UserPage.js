@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router';
-import IndexMovieBox from './IndexMovieBox';
+import IndexMovieBoxContainer from '../containers/IndexMovieBoxContainer';
 
 const UserPage = ({user}) => {
   let userMovies;
   if (user) {
     userMovies = user.movies.map((movie) => {
       return (
-        <IndexMovieBox
+        <IndexMovieBoxContainer
           key={movie.id}
           movie={movie}
           movies={user.movies}

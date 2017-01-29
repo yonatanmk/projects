@@ -8,7 +8,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     movies: state.movies,
     movie: ownProps.movie,
-    user: state.user.info
+    user: state.user.info,
+    userMovies: state.user.movies
   };
 };
 

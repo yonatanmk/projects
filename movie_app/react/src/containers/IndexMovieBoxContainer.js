@@ -14,10 +14,10 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleAddButtonClick: (user, movie) => {
+    handleButtonClick: (user, movie, status) => {
       api.addMovie(movie)
       .then(() => {
-        dispatch(setUserMovie(user, movie));
+        dispatch(setUserMovie(user, movie, status));
       })
       .catch(error => {
         console.error(`Error in fetch: ${error.message}`);

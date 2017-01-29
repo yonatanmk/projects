@@ -10,10 +10,9 @@ class Api::V1::UserMoviesController < ApplicationController
   def create
     @user = User.find(user_movie_params[:user_id])
     @movie = Movie.find(user_movie_params[:movie_id])
-
+    @status = user_movie_params[:status]
     unless @user.movies.include?(@movie)
-      # binding.pry
-      UserMovie.create(user: @user, movie: @movie)
+      UserMovie.create(user: @user, movie: @movie, status: @status )
     end
     render json: {}
   end
@@ -30,7 +29,7 @@ class Api::V1::UserMoviesController < ApplicationController
   private
 
   def user_movie_params
-    params.require(:user_movie).permit(:user_id, :movie_id)
+    params.require(:user_movie).permit(:user_id, :movie_id, :status)
   end
 
 end

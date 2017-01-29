@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170127203534) do
     t.string   "release_date"
     t.text     "overview"
     t.boolean  "adult",        default: false
+    t.string   "status"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end

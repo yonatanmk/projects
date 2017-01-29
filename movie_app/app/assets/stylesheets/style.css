@@ -25,3 +25,15 @@ ul {
   height: 195px;
   overflow: hidden;
 }
+
+.gray {
+  background-color: #8D8E8E;
+}
+
+.blue {
+  background-color: #48ACF0;
+}
+
+.green {
+  background-color: #71F79F;
+}

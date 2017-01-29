@@ -1,8 +1,9 @@
-export const addUserMovie = (user_id, movie_id) => {
+export const addUserMovie = (user_id, movie_id, status) => {
   let data = {
     user_movie: {
       user_id,
-      movie_id
+      movie_id,
+      status
     }
   };
   let body = JSON.stringify(data);

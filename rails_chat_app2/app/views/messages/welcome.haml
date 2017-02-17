@@ -1,0 +1,13 @@
+.container
+
+  %pre=session[:username]
+
+  =form_tag action: :login do
+    %fieldset
+      .field
+        =label_tag :username, "Choose a username"
+        .control
+          =text_field_tag :username
+
+      .actions
+        =submit_tag "Send"

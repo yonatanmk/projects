@@ -4,9 +4,9 @@ import { selectNoteAction } from './index';
 
 let addNote = (selectedFolderId) => (dispatch) => {
   api.addNote(selectedFolderId)
-  .then((noteId) => {
+  .then((note) => {
     dispatch(setNoteData(selectedFolderId));
-    dispatch(selectNoteAction(noteId));
+    dispatch(selectNoteAction(note));
   })
   .catch(error => console.error(`Error in fetch: ${error.message}`));
 };

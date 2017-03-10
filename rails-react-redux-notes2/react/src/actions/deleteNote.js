@@ -1,9 +1,10 @@
 import * as api from '../api';
-import setNoteData from './setNoteData';
+import { setNoteData, deselectNoteAction } from '../actions';
 
 let deleteNote = (noteId, selectedFolderId) => (dispatch) => {
   api.deleteNote(noteId)
-  .then((noteId) => {
+  .then(() => {
+    dispatch(deselectNoteAction());
     dispatch(setNoteData(selectedFolderId));
   })
   .catch(error => console.error(`Error in fetch: ${error.message}`));

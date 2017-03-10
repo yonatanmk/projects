@@ -1,2 +1,2 @@
 export {fetchFolders, addFolder} from './folders';
-export { fetchNotes, addNote, updateNote } from './notes';
+export { fetchNotes, addNote, updateNote, deleteNote } from './notes';

@@ -9,8 +9,8 @@ class NotesController < ApplicationController
 
   def create
     Note.create(note_params)
-    @new_note_id = Note.last.id
-    render json: @new_note_id
+    @new_note = Note.last
+    render json: @new_note
   end
 
 
@@ -20,7 +20,8 @@ class NotesController < ApplicationController
   end
 
   def destroy
-    binding.pry
+    @note = Note.find(params[:id])
+    @note.destroy
   end
 
   private

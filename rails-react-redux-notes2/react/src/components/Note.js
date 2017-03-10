@@ -1,17 +1,18 @@
 import React from 'react';
 
 const Note = (props) => {
-  let textarea, noteForm;
+  debugger;
+  let textarea;
   if (props.note) {
     return (
       <div>
         <button onClick={() => {
-          props.handleUpdateClick(props.selectedFolderId, props.selectedNoteId, textarea.value);
+          props.handleUpdateClick(props.selectedFolderId, props.note.id, textarea.value);
         }}>
           Update
         </button>
         <button onClick={() => {
-          props.handleDeleteClick(props.selectedNoteId, props.selectedFolderId);
+          props.handleDeleteClick(props.note.id, props.selectedFolderId);
         }}>
           Delete
         </button>

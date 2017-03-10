@@ -6,8 +6,7 @@ import { updateNote, updateNoteState, deleteNote } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
-    note: state.notes.find((note)=>{return note.id == state.selectedNoteId;}),
-    selectedNoteId: state.selectedNoteId,
+    note: state.selectedNote,
     selectedFolderId: state.selectedFolderId
   };
 };

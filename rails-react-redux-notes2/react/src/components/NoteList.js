@@ -8,7 +8,7 @@ const NoteList = (props) => {
     }
 
     let handleNoteClick = () => {
-      props.handleNoteClick(note.id, props.selectedNoteId);
+      props.handleNoteClick(note, props.selectedNoteId);
     };
 
     let noteBody = note.body.substring(0, 20);

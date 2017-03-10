@@ -30,9 +30,9 @@ export const setNotesAction = (notes) => {
   };
 };
 
-export const selectNoteAction = (id) => ({
+export const selectNoteAction = (note) => ({
   type: 'SELECT NOTE',
-  id
+  note
 });
 
 export const deselectNoteAction = () => ({

@@ -4,17 +4,18 @@ import { connect } from 'react-redux';
 import { setNoteData, selectNoteAction, deselectNoteAction } from '../actions';
 
 const mapStateToProps = (state) => {
+
   return {
     notes: state.notes,
     selectedFolderId: state.selectedFolderId,
-    selectedNoteId: state.selectedNoteId
+    selectedNote: state.selectedNote
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleNoteClick: (note, selectedNoteId) => {
-      if (note.id == selectedNoteId) { dispatch(deselectNoteAction()); }
+    handleNoteClick: (note, selectedNote) => {
+      if (selectedNote && note.id == selectedNote.id) { dispatch(deselectNoteAction()); }
       else { dispatch(selectNoteAction(note)); }
     }
   };

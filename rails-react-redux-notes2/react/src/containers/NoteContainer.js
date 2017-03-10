@@ -2,7 +2,7 @@ import React from 'react';
 import Note from '../components/Note';
 import { connect } from 'react-redux';
 
-import { updateNote, updateNoteState, deleteNote } from '../actions';
+import { updateNote, updateNoteBody, deleteNote } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch) => {
       }
     },
     handleNoteChange: (event) => {
-      dispatch(updateNoteState(event.target.value));
+      dispatch(updateNoteBody(event.target.value));
     },
     handleDeleteClick: (noteId, selectedFolderId) => {
       dispatch(deleteNote(noteId, selectedFolderId));

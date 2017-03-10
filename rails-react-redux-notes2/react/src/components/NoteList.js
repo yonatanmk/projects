@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 const NoteList = (props) => {
   let notes = props.notes.map((note)=>{
     let thisClassName = "noteListElement";
-    if (props.selectedNoteId == note.id) {
+    if (props.selectedNote && props.selectedNote.id == note.id) {
       thisClassName += " selected";
     }
 
     let handleNoteClick = () => {
-      props.handleNoteClick(note, props.selectedNoteId);
+      props.handleNoteClick(note, props.selectedNote);
     };
 
     let noteBody = note.body.substring(0, 20);

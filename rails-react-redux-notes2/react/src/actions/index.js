@@ -39,7 +39,7 @@ export const deselectNoteAction = () => ({
   type: 'DESELECT NOTE'
 });
 
-export const updateNoteState = (body) => ({
+export const updateNoteBody = (body) => ({
   type: 'CHANGE NOTE CONTENT',
   body
 });

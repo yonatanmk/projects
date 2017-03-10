@@ -1,5 +1,4 @@
 let selectedNote = (state = null, action) => {
-  // debugger;
     switch (action.type) {
       case 'SELECT NOTE':
         return action.note;

@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Note = (props) => {
-  debugger;
   let textarea;
   if (props.note) {
     return (

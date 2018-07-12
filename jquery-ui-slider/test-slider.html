@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <!-- <script src="http://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" type="text/javascript"></script> -->
+    <link rel="stylesheet" href="jquery-ui.min.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <style>
+      #slider1 .ui-slider-range {
+        background: #369; // not background-color
+      }
+
+      #slider3 .ui-slider-range {
+        background: #369; // not background-color
+      }
+
+      #slider3 {
+        height: .4em;
+        border: none;
+        background-color: #C5C2C1;
+      }
+
+      #custom-handle2 {
+        background-color: #369;
+        border: none;
+        border-radius: 50%;
+        width: 1.6em;
+        height: 1.6em;
+        margin-top: -4px;
+
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Click Me</h1>
+    <form>
+      <ul>
+        <li>
+          <label for="slideText">Slide Text:</label>
+          <input type="text" id="slideText" name="slideText" />
+
+          <label for="slideText3">Slide Text3:</label>
+          <input type="text" id="slideText3" name="slideText3" />
+        </li>
+        <li>
+          <div id="slider1"></div>
+        </li>
+        <li>
+          <div id="slider2">
+            <div id="custom-handle" class="ui-slider-handle"></div>
+          </div>
+        </li>
+        <li>
+          <div id="slider3">
+            <div id="custom-handle2" class="ui-slider-handle"></div>
+            <div id="custom-handle2" class="ui-slider-handle"></div>
+          </div>
+        </li>
+      </ul>
+    </form>
+    <script type="text/javascript">
+      $( function() {
+        var handle = $( "#custom-handle" );
+        $( "#slider2" ).slider({
+          create: function() {
+            handle.text( $( this ).slider( "value" ) );
+          },
+          slide: function( event, ui ) {
+            handle.text( ui.value );
+          }
+        });
+
+        var handle2 = $( "#custom-handle2" );
+        $( "#slider3" ).slider({
+          create: function() {
+            // handle2.text( $( this ).slider( "value" ) );
+          },
+          slide: function( event, ui ) {
+            $('#slideText3').val(`${ui.values[0]} - ${ui.values[1]}`);
+          },
+          min: 100,
+          max: 750,
+          values: [200, 500],
+          step: 25,
+          range: true,
+        });
+      } );
+
+      console.log('site loaded')
+      $("h1").click(evt => {
+        console.log("You Clicked!")
+      })
+
+      // $("#slider").slider();
+
+      $("#slider1").slider({
+        slide: (event, ui) => {
+          $('#slideText').val(`${ui.values[0]} - ${ui.values[1]}`);
+        },
+        min: 100,
+        max: 750,
+        values: [200, 500],
+        step: 25,
+        range: true,
+      })
+    </script>
+  </body>
+</html>

@@ -65,7 +65,7 @@ GEM
       mini_portile2 (~> 2.0.0.rc2)
     nokogiri (1.6.7.2-x64-mingw32)
       mini_portile2 (~> 2.0.0.rc2)
-    puma (3.4.0)
+    puma (3.12.6)
     rack (2.0.0.alpha)
       json
     rack-test (0.6.3)
